@@ -1,0 +1,82 @@
+body {
+  text-align : center;
+}
+
+#create {
+  margin : auto;
+}
+
+#control, #terrain {
+  width : 400px;
+  margin : auto;  
+}
+
+#terrain {
+  background-color: rgba(128,255,128,0.3);
+  height : 400px;
+  margin-bottom : 40px;
+  margin-top : 20px;
+  box-shadow: 0px 0px 10px 4px rgba(0,0,0,0.2);
+  position : relative;
+}
+
+
+#control {
+  background-color : rgb(200,200,255);
+  padding : 10px 0px;
+}
+
+.target {
+  position : absolute;
+  width : 30px;
+  height  : 30px;
+  border-radius : 30px;
+  box-shadow : 0px 0px 6px 2px rgb(0,0,0,0.3);
+  background-color: rgb(128,128,255);
+  opacity : 0;
+  transition-property : background-color, opacity;
+  transition-duration : 0.2s, 0.8s;  
+  transition-timing-function : ease-in, ease-out;
+  transition-delay : 0s, 0.2s;
+}
+.target.on {
+  background-color: rgba(0,255,0,1);
+  opacity : 1;
+}
+
+.target.on.hit {
+  background-color: rgba(80,80,80,1);  
+  opacity : 0;
+  z-index : -1;
+}
+
+
+#control div {
+  margin :8px 0px;
+}
+
+#remaining, #nbtargets {
+  display : inline-block;  
+  padding : 0px 5px;
+}
+#remaining {
+  text-align : right;  
+  margin-right :20px;
+  width : 30px;
+  background-color: white;
+}
+#nbtargets{
+  text-align: center;
+  width : 30px;
+  margin-right : 5px;
+}
+#chrono {
+  border : solid thin black;
+  padding : 1px 5px;
+  background-color : white;  
+}
+#chrono span {
+  padding : 0px 1px;
+  font-family : sans-serif;
+}
+

@@ -1,0 +1,7 @@
+/***********************************************/
+/**                                            */
+/**              MINI-PROJET JS 202x           */
+/**                                            */
+/***********************************************/
+
+/** placez ici vos reponses et commentaires concernants les differents réponse aux questions du sujet de projet */
