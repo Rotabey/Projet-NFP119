@@ -1,5 +1,4 @@
 // YOUR NAME HERE
-//J-Baptiste Cherrier
 
 class Party {
     static TARGET_WIDTH = 40;
