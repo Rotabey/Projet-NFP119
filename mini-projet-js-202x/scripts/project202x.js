@@ -1,7 +1,5 @@
 // YOUR NAME HERE
 
-
-import {Table} from "./Table";
 class Party {
     constructor() {
         this.tenthElement = this.byId('tenth');
@@ -71,7 +69,6 @@ class Party {
                         if (this.nbTarget == 0 && this.startedParty == true){
                             this.startedParty = false;
                             this.displayChronoTimer();
-                            Table.insertLine();
                         }
                         this.byId('remaining').textContent = this.nbTarget;
                     });
@@ -80,7 +77,11 @@ class Party {
     }
 
     displayChronoTimer(){
-        alert(this.chronoTimer);
+        let arrayTimer = this.chronoTimer.split(' ');
+        let minutes = arrayTimer[0];
+        let seconds = arrayTimer[2];
+        let centi = arrayTimer[4];
+        this.byId('score').innerHTML = "<p>Votre temps est de " + minutes + "m : " + seconds +"s . " + centi + "</p>";
     }
 
     displayTime(suppr = false, minutesTime, secondsTime, centisecondsTime){

@@ -81,3 +81,7 @@ body {
   font-family : sans-serif;
 }
 
+#score {
+  display: flex;
+}
+
