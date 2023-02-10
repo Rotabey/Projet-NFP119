@@ -11,6 +11,10 @@ body {
   margin : auto;  
 }
 
+.hard-playground{
+  width: 600px!important;
+}
+
 #terrain {
   background-color: rgba(128,255,128,0.3);
   height : 400px;
@@ -40,6 +44,12 @@ body {
   transition-timing-function : ease-in, ease-out;
   transition-delay : 0s, 0.2s;
 }
+
+.hard {
+  width: 20px;
+  height: 20px;
+}
+
 .target.on {
   background-color: rgba(0,255,0,1);
   opacity : 1;
@@ -82,6 +92,6 @@ body {
 }
 
 #score {
-  display: flex;
+  margin-top: 10px;
 }
 
