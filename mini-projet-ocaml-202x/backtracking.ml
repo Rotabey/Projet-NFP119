@@ -1,8 +1,8 @@
 (* Fonction permttant de voir si un nombre donné est absent sur une ligne d'un tableau *)
-let absent_sur_ligne number grid line = 
+let absent_sur_ligne number grid line =
   let is_present = ref false and column = ref 0 in
   while not !is_present && !column < Array.length grid.(line) do
-    if grid.(line).(!column) = number then 
+    if grid.(line).(!column) = number then
       is_present := true;
     incr column
   done;
@@ -10,21 +10,21 @@ let absent_sur_ligne number grid line =
 
 
 (* Fonction permettant de voir si un nombre est absent sur une colonne d'un tableau *)
-let absent_sur_col number grid column = 
+let absent_sur_col number grid column =
   let is_present = ref false in
-  for i = 0 to Array.length grid - 1 do 
-    if grid.(i).(column) = number then 
-      is_present := true 
+  for i = 0 to Array.length grid - 1 do
+    if grid.(i).(column) = number then
+      is_present := true
   done;
-  not !is_present;; 
+  not !is_present;;
 
 
 (* Fonction permettant de voir si un nombre est absent sur un bloc  *)
 let absent_sur_block number grid line column =
   let grid_length = Array.length grid in
-  let block_size = 
+  let block_size =
     int_of_float (sqrt (float_of_int grid_length)) in
-  let block_start_line = line - line mod block_size and 
+  let block_start_line = line - line mod block_size and
     block_start_column = column - column mod block_size in
   try
     for row = block_start_line to block_start_line + block_size - 1 do
@@ -67,24 +67,24 @@ let remplir grid =
       end in
   aux 0;;
 
-  
+(* Fonction permettant d'afficher la grille de sudoku *)
 let display_grid grid =
   let size = Array.length grid in
   for i = 0 to size - 1 do
-    if i mod 3 = 0 then 
+    if i mod 3 = 0 then
       Printf.printf "+-----------+-----------+-----------+\n";
-    for j = 0 to size - 1 do 
+    for j = 0 to size - 1 do
       if j = 0 && i != size then
         Printf.printf "|";
-      Printf.printf " %d |" grid.(i).(j); 
-    done; 
-    Printf.printf "\n"; 
+      Printf.printf " %d |" grid.(i).(j);
+    done;
+    Printf.printf "\n";
     if i = size - 1 then
       Printf.printf "+-----------+-----------+-----------+\n";
-  done;; 
+  done;;
 
 
-let sudo = 
+let sudo =
   [|
     [|5; 3; 0; 0; 7; 0; 0; 0; 0|];
     [|6; 0; 0; 1; 9; 5; 0; 0; 0|];
@@ -97,6 +97,9 @@ let sudo =
     [|0; 0; 0; 0; 8; 0; 0; 7; 9|]
   |];;
 
+absent_sur_ligne 8 sudo 0;;
+absent_sur_col 3 sudo 0;;
+absent_sur_block 2 sudo 1 1;;
 
 remplir sudo;;
-display_grid sudo;; 
+display_grid sudo;;
