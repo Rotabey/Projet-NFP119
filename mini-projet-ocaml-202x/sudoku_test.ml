@@ -106,5 +106,5 @@ let run_test grid =
     Printf.printf "\n"
   in
 
-let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|];;
+let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|] in
 Array.iter run_test sudo_array;;
