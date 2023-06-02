@@ -72,7 +72,8 @@ let absent_sur_bloc_test grid () =
   print_string (string_of_bool result);
   Printf.printf "\n"
 
-let run_test grid =
+let run_test grid numero_grille =
+  Printf.printf "%d" numero_grille;
   absent_sur_colonne_test grid ();
   absent_sur_ligne_test grid ();
   absent_sur_bloc_test grid ();
@@ -81,4 +82,4 @@ let run_test grid =
   Printf.printf "\n";;
 
 let sudo_array = [|sudo1; sudo2; sudo3|] in
-Array.iter run_test sudo_array;;
+Array.iteri (fun i grid -> run_test grid (i + 1)) sudo_array;;
