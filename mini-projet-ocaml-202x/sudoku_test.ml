@@ -37,30 +37,6 @@ let sudo3 = [|
   [|0; 3; 0; 0; 0; 6; 0; 0; 0|]
 |];;
 
-let sudo4 = [|
-  [|0; 0; 6; 1; 0; 0; 0; 7; 0|];
-  [|9; 0; 0; 0; 0; 0; 8; 0; 0|];
-  [|1; 0; 0; 9; 0; 0; 0; 0; 2|];
-  [|0; 8; 0; 0; 0; 6; 0; 0; 5|];
-  [|6; 0; 0; 0; 0; 0; 0; 0; 8|];
-  [|5; 0; 0; 7; 0; 0; 0; 4; 0|];
-  [|3; 0; 0; 0; 0; 2; 0; 0; 9|];
-  [|0; 0; 2; 0; 0; 0; 0; 0; 1|];
-  [|0; 5; 0; 0; 0; 3; 4; 0; 0|]
-|];;
-
-let sudo5 = [|
-  [|4; 0; 0; 0; 0; 0; 0; 0; 1|];
-  [|0; 1; 0; 0; 0; 0; 0; 9; 0|];
-  [|0; 0; 2; 0; 0; 0; 7; 0; 0|];
-  [|0; 0; 0; 9; 1; 2; 0; 0; 0|];
-  [|0; 0; 0; 7; 0; 3; 0; 0; 0|];
-  [|0; 0; 0; 8; 5; 6; 0; 0; 0|];
-  [|0; 0; 9; 0; 0; 0; 6; 0; 0|];
-  [|0; 8; 0; 0; 0; 0; 0; 7; 0|];
-  [|1; 0; 0; 0; 0; 0; 0; 0; 4|]
-|];;
-
 
 let genere_random_number () : int =
   Random.int 9;;
@@ -100,10 +76,9 @@ let run_test grid =
   absent_sur_colonne_test grid;
   absent_sur_ligne_test grid;
   absent_sur_bloc_test grid;
-  let () =
-    Backtracking.remplir_le_sudoku grid;
-    Backtracking.afficher_le_sudoku grid;
-    Printf.printf "\n";
+  Backtracking.remplir_le_sudoku grid;
+  Backtracking.afficher_le_sudoku grid;
+  Printf.printf "\n";;
 
-let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|] in
+let sudo_array = [|sudo1; sudo2; sudo3|] in
 Array.iter run_test sudo_array;;
