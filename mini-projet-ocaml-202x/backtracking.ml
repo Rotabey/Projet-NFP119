@@ -1,5 +1,5 @@
 (* Permet de voir si un nombre donné est absent sur une ligne d'un tableau *)
-module type BacktrackingDig =
+module type Backtracking =
 
 let absent_sur_ligne number grid line =
   let is_present = ref false and column = ref 0 in
@@ -84,5 +84,7 @@ let afficher_le_sudoku grid =
     if i = size - 1 then
       Printf.printf "+-----------+-----------+-----------+\n";
   done;;
+
+  end
 
 
