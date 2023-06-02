@@ -1,6 +1,6 @@
 open Backtracking
 
-(* Test des fonctions *)
+(* grilles *)
 let sudo1 = [|
   [|5; 3; 0; 0; 7; 0; 0; 0; 0|];
   [|6; 0; 0; 1; 9; 5; 0; 0; 0|];
@@ -37,7 +37,7 @@ let sudo3 = [|
   [|0; 3; 0; 0; 0; 6; 0; 0; 0|]
 |];;
 
-
+(* Test des fonctions *)
 let genere_random_number () : int =
   Random.int 9;;
 
