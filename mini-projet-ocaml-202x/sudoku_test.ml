@@ -1,3 +1,5 @@
+open Backtracking
+
 (* Test des fonctions *)
 let sudo1 = [|
   [|5; 3; 0; 0; 7; 0; 0; 0; 0|];
