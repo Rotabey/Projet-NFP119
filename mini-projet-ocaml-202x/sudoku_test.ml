@@ -100,6 +100,7 @@ let run_test grid =
    absent_sur_colonne_test grid ();
    absent_sur_ligne_test grid ();
    absent_sur_bloc_test grid ();
+   let () =
    Backtracking.remplir_le_sudoku grid;
    Backtracking.afficher_le_sudoku grid;
     Printf.printf "\n";;
