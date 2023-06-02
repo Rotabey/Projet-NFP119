@@ -62,7 +62,7 @@ let sudo5 = [|
 |];;
 
 
-let genere_random_number () =
+let genere_random_number () : int =
   Random.int 9;;
 
 let absent_sur_colonne_test grid () =
@@ -106,4 +106,4 @@ let run_test grid =
     Printf.printf "\n";
 
 let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|] in
-Array.iter run_test sudo_array;
+Array.iter run_test sudo_array;;
