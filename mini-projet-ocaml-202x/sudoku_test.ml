@@ -107,4 +107,4 @@ let run_test grid =
   in
 
 let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|] in
-Array.iter run_test sudo_array;;
+Array.iter run_test sudo_array;
