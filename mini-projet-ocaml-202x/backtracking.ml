@@ -92,5 +92,3 @@ let afficher_le_sudoku grid =
       Printf.printf "+-----------+-----------+-----------+\n";
   done;;
 end
-
-
