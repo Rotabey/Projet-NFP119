@@ -1,4 +1,6 @@
 (* Permet de voir si un nombre donné est absent sur une ligne d'un tableau *)
+module type BacktrackingDig =
+
 let absent_sur_ligne number grid line =
   let is_present = ref false and column = ref 0 in
   while not !is_present && !column < Array.length grid.(line) do
