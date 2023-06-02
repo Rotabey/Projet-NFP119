@@ -1,6 +1,13 @@
-(* Permet de voir si un nombre donné est absent sur une ligne d'un tableau *)
-module type Backtracking =
+module type BacktrackingSig = sig
+    val absent_sur_ligne : int -> int array array -> int -> bool
+    val absent_sur_colonne : int -> int array array -> int -> bool
+    val absent_sur_bloc : int -> int array array -> int -> int -> bool
+    val remplir_le_sudoku : int array array -> bool
+    val afficher_le_sudoku : int array array -> unit
+ end
 
+module Backtracking : BacktrackingSig = struct
+(* Permet de voir si un nombre donné est absent sur une ligne d'un tableau *)
 let absent_sur_ligne number grid line =
   let is_present = ref false and column = ref 0 in
   while not !is_present && !column < Array.length grid.(line) do
@@ -84,7 +91,6 @@ let afficher_le_sudoku grid =
     if i = size - 1 then
       Printf.printf "+-----------+-----------+-----------+\n";
   done;;
-
-  end
+end
 
 
