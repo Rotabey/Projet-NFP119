@@ -103,7 +103,7 @@ let run_test grid =
   let () =
     Backtracking.remplir_le_sudoku grid;
     Backtracking.afficher_le_sudoku grid;
-    Printf.printf "\n";;
+    Printf.printf "\n";
 
 let sudo_array = [|sudo1; sudo2; sudo3; sudo4; sudo5|] in
 Array.iter run_test sudo_array;
