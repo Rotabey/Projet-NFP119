@@ -1,5 +1,3 @@
-// YOUR NAME HERE
-
 function byId(id) {
     if (id) {
         return document.getElementById(id);
@@ -25,7 +23,7 @@ function initParty() {
 
 function bindCreateOneTarget() {
     byId('create').addEventListener('click', () => {
-        generateTarget(1).then(() => {
+        generateTargets(1).then(() => {
             targetList[0].addEventListener('click', () => {
                 targetList[0].classList.add('hit');
             });
@@ -51,7 +49,7 @@ function prepareParty() {
         }
     }
 
-    generateTarget(nbTarget)
+    generateTargets(nbTarget)
         .then(() => {
             byId('remaining').textContent = nbTarget;
             for (let target of targetList) {
@@ -73,7 +71,7 @@ function prepareParty() {
         });
 }
 
-async function generateTarget(n = 0) {
+async function generateTargets(n = 0) {
     let level = byId('level').value;
     let terrain = byId('terrain');
     let emptyPlayground = true;
