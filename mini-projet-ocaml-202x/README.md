@@ -5,11 +5,11 @@ Voir le lien : https://v2.ocaml.org/docs/install.fr.html
 
 ## Lancement :
 - Ouvrer un terminal et rendez-vous sur le projet "Projet-NFP119/mini-projet-ocaml-202x".
-- Lancer la commande suivante : 
+- Ensuite, lancer la commande suivante : 
 ````
 ocamlc -o sudoku backtracking.ml sudoku_test.ml
 ````
-- Puis lancer le programme :
+- Enfin, lancer le programme :
 ````
 ./sudoku
 ````
