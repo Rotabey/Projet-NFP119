@@ -1,4 +1,4 @@
-# Projet ocaml
+# Projet OCaml
 
 ## Installation OCaml :
 Voir le lien : https://v2.ocaml.org/docs/install.fr.html
