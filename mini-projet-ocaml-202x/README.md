@@ -4,7 +4,7 @@
 Voir le lien : https://v2.ocaml.org/docs/install.fr.html
 
 ## Lancement :
-- Ouvrer un terminal et rendez-vous sur le projet "mini-projet-ocaml-202x".
+- Ouvrer un terminal et rendez-vous sur le projet "Projet-NFP119/mini-projet-ocaml-202x".
 - Lancer la commande suivante : 
 ````
 ocamlc -o sudoku backtracking.ml sudoku_test.ml
@@ -23,7 +23,7 @@ Le programme du fichier "backtracking.ml" définit un module Backtracking qui im
 Voici les différentes fonctions crées dans le fichier "backtracking" :
 absent_sur_ligne, absent_sur_colonne, absent_sur_bloc, remplir_le_sudoku, afficher_le_sudoku.
 
-La fonction absent_sur_ligne :
+#### La fonction absent_sur_ligne :
 - Prends en paramètres, le nombre à vérifier, la grille de sudoku et le numéro de la ligne.
 - On crée une variable mutable "is_present" qui est initialisée à false. Cette dernière sera utilisée pour indiquer si le nombre est présent ou non sur la ligne.
 - On crée une autre variable mutable nommée "column" initialisée à 0 qui sera utilisée pour parcourir les colonnes de la ligne.
@@ -35,15 +35,14 @@ La fonction absent_sur_ligne :
 - On parcourt donc les cases d'une ligne donnée d'une grille de sudoku et on verifie si un nombre donné est présent sur cette ligne.
 - On renvoie 'true' si le nombre est absent sur la ligne et 'false' s'il est présent.
 
-La fonction absent_sur_colonne :
+#### La fonction absent_sur_colonne :
 - La fonction prend en paramètres le nombre à vérifier, la grille de sudoku et le numéro de la colonne à vérifier.
 - On crée un variable mutable "is_present" initialisée à false qui sera utilisée pour indiquer si le nombre est présent sur la colonne.
 - On utilise une boucle "for" pour parcourir les différentes lignes du tableau.
 - Pour chaque itération, on vérifie si la valeur de la case dans la ligne actuelle (grid.(i)) et la colonne spécifiée (column) est égale au nombre donné (number). Si c'est le cas, elle met à jour la variable (is_present) en définissant sa valeur à 'true', ce qui indique que le nombre est présent sur la colonne.
 - La boucle terminée, on renvoie la négation de la variable 'is_present' (not !is_present). Si (is_present) est 'false', cela signifie que le nombre est absent sur la colonne ainsi la fonction renvoie true. Sinon, elle renvoie false cela signifie que le nombre est présent sur la colonne.
 
-.
-La fonction absent_sur_colonne :
+#### La fonction absent_sur_colonne :
 - Cette fonction prend en paramètres le nombre à vérifier (number), la grille de sudoku (grid), la ligne (line) et la colonne (column)
 - On détermine la taille de la grille avec (Array.length grid) et on stocke cette dernière dans la variable (grid_length).
 - On calcule la taille d'un bloc en utilisant la formule (block_size = int_of_float (sqrt (float_of_int grid_length))). La grille de sudoku est un carré parfait, donc le nombre de colonnes est égal aux nombres de lignes.
@@ -53,8 +52,8 @@ La fonction absent_sur_colonne :
 - Pour chaque itération des boucles, on vérifie si la valeur de la case dans la grille (grid.(row).(line)) est égale au nombre donné (number). Si c'est le cas, on lance une exception (Exit) pour sortir des boucles.
 - Si les boucles sont parcourues entièrement sans trouver le nombre, cela signifie que le nombre est absent dans le bloc et on renvoie alors true. Si une exception (Exit) est levée, cela signifie que le nombre a été trouvé dans le bloc, on capture cette exception avec la structure with Exit et on renvoie false.
 
-.
-La fonction remplir_le_sudoku :
+
+#### La fonction remplir_le_sudoku :
 - Cette fonction prend en paramètres une grille de sudoku (grid).
 - On commence par déterminer la taille de la grille en utilisant (Array.length grid) et on stocke dans la variable (grid_size).
 - Puis, on définit une fonction récursive (aux) qui prend en paramètre (current_index) qui correspond à l'indice de la case actuelle dans le parcours de la grille.
@@ -70,8 +69,8 @@ La fonction remplir_le_sudoku :
 - Grâce à (try with), on capture l'exception SolutionTrouve qui est levée lorsque la solution est trouvée. Si l'exception est capturée, la fonction renvoie true pour indiquer que la grille est résolue avec succès.
 - Enfin, cette fonction appelle (aux) avec l'indice initial 0 pour démarrer la résolution.
 
-.
-La fonction afficher_le_sudoku :
+
+#### La fonction afficher_le_sudoku :
 - Elle prend en paramètres la grille de sudoku (grid).
 - On détermine la taille de la grille et on la stocke dans une variable.
 - On utilise une boucle (for) pour parcourir les lignes de la grille. L'indice de ligne est représenté par la variable (i), qui va de 0 à (size - 1).
@@ -87,7 +86,7 @@ La fonction afficher_le_sudoku :
 Ce dernier est un programme test.
 Le programme du fichier "sudoku_test.ml" effectue plusieurs tests liés à la résolution de grilles de Sudoku en utilisant le module Backtracking.
 
-Le programme :
+#### Le programme :
 - Commence par ouvrir le module "Backtracking" et ce qui permet d'accéder aux fonctions qu'il contient.
 - Définis 3 grilles de sudoku.
 - La fonction "absent_sur_colonne_test" vérifie si un nombre est absent sur une colonne donnée de la grille. Elle génère une colonne aléatoire et une valeur aléatoire, puis utilise la fonction (absent_sur_colonne) du module "Backtracking" pour effectuer la vérification.
