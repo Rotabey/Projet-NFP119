@@ -40,12 +40,13 @@ function bindGenerateTarget() {
 function prepareParty() {
     byId('score').textContent = '';
     nbTarget = byId('nbtargets').value;
+
     if (startedParty == true) {
         startedParty = false;
-        displayTime(true);
+        reinitDisplayTime();
     } else {
         if (time != 0) {
-            displayTime(true);
+            reinitDisplayTime();
         }
     }
 
@@ -77,6 +78,8 @@ async function generateTargets(n = 0) {
     let emptyPlayground = true;
 
     if (targetList.length > 0) {
+        //Attends que la fonction "removeAllTarget" soit terminée
+        //afin d'éviter les erreurs de suppression des nouvelles cibles
         emptyPlayground = await removeAllTarget();
         targetList = [];
     }
@@ -112,6 +115,7 @@ function removeTarget(target) {
 }
 
 function removeAllTarget() {
+    // Retourne une promesse afin d'éviter les erreurs de suppression des nouvelles cibles
     return new Promise((resolve) => {
         for (let target of targetList) {
             target.remove();
@@ -120,32 +124,32 @@ function removeAllTarget() {
     });
 }
 
-function displayTime(suppr = false, minutesTime, secondsTime, tenthsecondsTime) {
+function reinitDisplayTime() {
+    tenthElement.textContent = "0";
+    secondsElement.textContent = "00";
+    minutesElement.textContent = "00";
+}
+
+function displayTime(minutesTime, secondsTime, tenthsecondsTime) {
     let displaySeconds;
     let displayMinutes;
 
-    if (suppr == true) {
-        tenthElement.textContent = "0";
-        secondsElement.textContent = "00";
-        minutesElement.textContent = "00";
+    if (tenthsecondsTime < 10) {
+        tenthElement.textContent = tenthsecondsTime;
+    }
+
+    if (secondsTime < 10) {
+        displaySeconds = '0' + secondsTime;
+        secondsElement.textContent = displaySeconds;
+    } else if (secondsTime < 60) {
+        secondsElement.textContent = secondsTime;
+    }
+
+    if (minutesTime < 10) {
+        displayMinutes = '0' + minutesTime;
+        minutesElement.textContent = displayMinutes;
     } else {
-        if (tenthsecondsTime < 10) {
-            tenthElement.textContent = tenthsecondsTime;
-        }
-
-        if (secondsTime < 10) {
-            displaySeconds = '0' + secondsTime;
-            secondsElement.textContent = displaySeconds;
-        } else if (secondsTime < 60) {
-            secondsElement.textContent = secondsTime;
-        }
-
-        if (minutesTime < 10) {
-            displayMinutes = '0' + minutesTime;
-            minutesElement.textContent = displayMinutes;
-        } else {
-            minutesElement.textContent = minutesTime;
-        }
+        minutesElement.textContent = minutesTime;
     }
 }
 
