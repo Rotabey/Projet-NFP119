@@ -47,10 +47,10 @@ function prepareParty() {
 
     if (startedParty == true) {
         startedParty = false;
-        reinitDisplayTime();
+        displayTime(true);
     } else {
         if (time != 0) {
-            reinitDisplayTime();
+            displayTime(true);
         }
     }
 
@@ -131,34 +131,34 @@ function removeAllTarget() {
     });
 }
 
-// Réinitialise les éléments d'affichage du temps.
-function reinitDisplayTime() {
-    tenthElement.textContent = "0";
-    secondsElement.textContent = "00";
-    minutesElement.textContent = "00";
-}
-
 // Affiche le temps écoulé à la fin de la partie.
-function displayTime(minutesTime, secondsTime, tenthsecondsTime) {
+function displayTime(suppr = false, minutesTime, secondsTime, tenthsecondsTime) {
     let displaySeconds;
     let displayMinutes;
 
-    if (tenthsecondsTime < 10) {
-        tenthElement.textContent = tenthsecondsTime;
-    }
-
-    if (secondsTime < 10) {
-        displaySeconds = '0' + secondsTime;
-        secondsElement.textContent = displaySeconds;
-    } else if (secondsTime < 60) {
-        secondsElement.textContent = secondsTime;
-    }
-
-    if (minutesTime < 10) {
-        displayMinutes = '0' + minutesTime;
-        minutesElement.textContent = displayMinutes;
+    if (suppr == true){
+        // Réinitialise les valeurs des éléments d'affichage
+        tenthElement.textContent = "0";
+        secondsElement.textContent = "00";
+        minutesElement.textContent = "00";
     } else {
-        minutesElement.textContent = minutesTime;
+        if (tenthsecondsTime < 10) {
+            tenthElement.textContent = tenthsecondsTime;
+        }
+
+        if (secondsTime < 10) {
+            displaySeconds = '0' + secondsTime;
+            secondsElement.textContent = displaySeconds;
+        } else if (secondsTime < 60) {
+            secondsElement.textContent = secondsTime;
+        }
+
+        if (minutesTime < 10) {
+            displayMinutes = '0' + minutesTime;
+            minutesElement.textContent = displayMinutes;
+        } else {
+            minutesElement.textContent = minutesTime;
+        }
     }
 }
 
