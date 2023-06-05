@@ -1,8 +1,23 @@
 # Projet ocaml
 
+## Installation OCaml :
+Voir le lien : https://v2.ocaml.org/docs/install.fr.html
+
+## Lancement :
+- Ouvrer un terminal et rendez-vous sur le projet "mini-projet-ocaml-202x".
+- Lancer la commande suivante : 
+````
+ocamlc -o sudoku backtracking.ml sudoku_test.ml
+````
+- Puis lancer le programme :
+````
+./sudoku
+````
+
+# Description du code
 Ce projet contient deux fichiers "backtracking.ml" et "sudoku_test.ml".
 
-## Fichier "backtracking.ml"
+### Fichier "backtracking.ml"
 Le programme du fichier "backtracking.ml" définit un module Backtracking qui implémente les fonctions nécessaires pour résoudre un Sudoku. Le module a une signature BacktrackingSig qui décrit les types et les fonctions disponibles.
 
 Voici les différentes fonctions crées dans le fichier "backtracking" :
@@ -68,7 +83,7 @@ La fonction afficher_le_sudoku :
 - Enfin, avec une condition, on vérifie si l'indice de la ligne (i) est égal à (size - 1). Dans ce cas, ça signifie que c'est la dernière ligne de la grille et on affiche une ligne de séparation finale.
 
 
-## Fichier "sudoku_test.ml"
+### Fichier "sudoku_test.ml"
 Ce dernier est un programme test.
 Le programme du fichier "sudoku_test.ml" effectue plusieurs tests liés à la résolution de grilles de Sudoku en utilisant le module Backtracking.
 

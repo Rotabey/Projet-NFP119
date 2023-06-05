@@ -1,3 +1,4 @@
+(* On définit pour le module Backtracking une signature BacktrackingSig qui décrit les types et les fonctions disponibles dans ce dernier *)
 module type BacktrackingSig = sig
     val absent_sur_ligne : int -> int array array -> int -> bool
     val absent_sur_colonne : int -> int array array -> int -> bool
@@ -6,6 +7,7 @@ module type BacktrackingSig = sig
     val afficher_le_sudoku : int array array -> unit
  end
 
+(* Définit un module Backtracking qui implémente les fonctions *)
 module Backtracking : BacktrackingSig = struct
 (* Permet de voir si un nombre donné est absent sur une ligne d'un tableau *)
 let absent_sur_ligne number grid line =
