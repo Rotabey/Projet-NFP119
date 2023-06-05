@@ -15,12 +15,14 @@ let startedParty = false;
 let time = 0;
 let timerId = null;
 
+// Initialise la partie en liant les événements aux boutons et en ajoutant un élément pour afficher le score.
 function initParty() {
     bindCreateOneTarget();
     bindGenerateTarget();
     byId('control').insertAdjacentHTML('beforeend', '<div id="score"></div>');
 }
 
+// Lie l'événement du bouton "create" à la génération d'une cible unique.
 function bindCreateOneTarget() {
     byId('create').addEventListener('click', () => {
         generateTargets(1).then(() => {
@@ -31,12 +33,14 @@ function bindCreateOneTarget() {
     });
 }
 
+// Lie l'événement du bouton "start" au démarrage de la partie.
 function bindGenerateTarget() {
     byId('start').addEventListener('click', () => {
         prepareParty();
     });
 }
 
+// Prépare la partie en réinitialisant les éléments d'affichage et en générant les cibles.
 function prepareParty() {
     byId('score').textContent = '';
     nbTarget = byId('nbtargets').value;
@@ -72,6 +76,7 @@ function prepareParty() {
         });
 }
 
+// Génère les cibles de manière asynchrone en fonction du niveau sélectionné.
 async function generateTargets(n = 0) {
     let level = byId('level').value;
     let terrain = byId('terrain');
@@ -108,12 +113,14 @@ async function generateTargets(n = 0) {
     }
 }
 
+// Supprime une cible après un délai d'une seconde.
 function removeTarget(target) {
     setTimeout(() => {
         byId('terrain').removeChild(target);
     }, 1000);
 }
 
+// Supprime toutes les cibles existantes.
 function removeAllTarget() {
     // Retourne une promesse afin d'éviter les erreurs de suppression des nouvelles cibles
     return new Promise((resolve) => {
@@ -124,12 +131,14 @@ function removeAllTarget() {
     });
 }
 
+// Réinitialise les éléments d'affichage du temps.
 function reinitDisplayTime() {
     tenthElement.textContent = "0";
     secondsElement.textContent = "00";
     minutesElement.textContent = "00";
 }
 
+// Affiche le temps écoulé à la fin de la partie.
 function displayTime(minutesTime, secondsTime, tenthsecondsTime) {
     let displaySeconds;
     let displayMinutes;
@@ -153,10 +162,12 @@ function displayTime(minutesTime, secondsTime, tenthsecondsTime) {
     }
 }
 
+// Affiche le temps final du chrono.
 function displayChronoTimer() {
     byId('score').innerHTML = "<p>Votre temps est de " + minutesElement.textContent + "m : " + secondsElement.textContent + "s . " + tenthElement.textContent + "</p>";
 }
 
+// Gère le décompte du temps lors du démarrage de la partie.
 function timer() {
     let minutesTime = 0;
     let secondsTime = 0;
@@ -186,4 +197,5 @@ function timer() {
     }, 100);
 }
 
+// Initialise la partie lors du chargement de la page.
 initParty();
